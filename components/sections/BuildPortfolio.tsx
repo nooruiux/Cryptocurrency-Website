@@ -11,9 +11,9 @@ export function BuildPortfolio() {
           src="/assets/portfolio/wave-lines.svg"
           alt=""
           aria-hidden
-          width={1168}
+          width={1248}
           height={528}
-          className="pointer-events-none absolute top-[208px] left-[-119px] -z-10 hidden h-[528px] w-[1168px] max-w-none xl:block"
+          className="pointer-events-none absolute top-[208px] left-[-199px] -z-10 hidden h-[528px] w-[1248px] max-w-none [mask-image:linear-gradient(to_right,transparent,black_280px)] xl:block"
         />
 
         <Reveal className="flex max-w-[537px] flex-col xl:pt-20">
@@ -64,7 +64,7 @@ export function BuildPortfolio() {
             width={720}
             height={964}
             sizes="(min-width: 1280px) 720px, (min-width: 1024px) 56vw, 131vw"
-            className="absolute top-[-17.057%] left-[-9.333%] h-auto w-[131.01%] max-w-none"
+            className="absolute top-[-17.057%] left-[-9.333%] h-auto w-[131.01%] max-w-none [mask-image:linear-gradient(to_left,transparent,black_16%)]"
           />
         </Reveal>
       </div>

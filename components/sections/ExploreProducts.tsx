@@ -18,9 +18,9 @@ export function ExploreProducts() {
         src="/assets/explore/glow.webp"
         alt=""
         aria-hidden
-        width={633}
-        height={963}
-        className="pointer-events-none absolute top-[-158px] left-[calc(var(--gutter)+688px)] -z-10 hidden h-[963px] w-[633px] max-w-none lg:block"
+        width={964}
+        height={964}
+        className="pointer-events-none absolute top-[-158px] left-[calc(var(--gutter)+688px)] -z-10 hidden size-[964px] max-w-none lg:block"
       />
       <Reveal>
         <h2

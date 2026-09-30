@@ -11,8 +11,8 @@ export function ControlCrypto() {
       {/* Decorative glows + illustration (desktop geometry from Figma) */}
       <div aria-hidden className="pointer-events-none absolute inset-y-0 left-[var(--gutter)] -z-10 hidden w-[1202px] xl:block">
         <Image src="/assets/control/glow-center.webp" alt="" width={845} height={845} className="absolute top-[-120px] left-[59px] size-[845px] max-w-none" />
-        <Image src="/assets/control/glow-left.webp" alt="" width={470} height={795} className="absolute top-[-214px] left-[-119px] h-[795px] w-[470px] max-w-none" />
-        <Image src="/assets/control/glow-right.webp" alt="" width={478} height={775} className="absolute top-[291px] left-[843px] h-[775px] w-[478px] max-w-none" />
+        <Image src="/assets/control/glow-left.webp" alt="" width={795} height={795} className="absolute top-[-214px] left-[-444px] size-[795px] max-w-none" />
+        <Image src="/assets/control/glow-right.webp" alt="" width={775} height={775} className="absolute top-[291px] left-[843px] size-[775px] max-w-none" />
       </div>
 
       <div className="relative flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-8">
