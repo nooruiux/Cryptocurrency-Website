@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
+import { PhoneShowcase } from "./PhoneShowcase";
 
 /** Figma "Build Portfolio" (192:2067). */
 export function BuildPortfolio() {
@@ -55,17 +56,12 @@ export function BuildPortfolio() {
           </div>
         </Reveal>
 
-        {/* Phone mockup with coin cards (192:1613) — rendered with its glow bleed */}
-        <Reveal className="relative mx-auto aspect-[549/668] w-full max-w-[549px] lg:mx-0 lg:ml-auto lg:w-[42%] xl:absolute xl:top-0 xl:left-[653px] xl:h-[668px] xl:w-[549px]" delay={0.1}>
-          {/* The render includes the glow bleed: offset it so the 549×668 frame aligns with Figma */}
-          <Image
-            src="/assets/portfolio/phone-mockup.webp"
-            alt="Lumino wallet app on a phone showing the ETH/USD chart, with Bitcoin, Ethereum and Tether price cards"
-            width={720}
-            height={964}
-            sizes="(min-width: 1280px) 720px, (min-width: 1024px) 56vw, 131vw"
-            className="absolute top-[-17.057%] left-[-9.333%] h-auto w-[131.01%] max-w-none [mask-image:linear-gradient(to_left,transparent,black_16%)]"
-          />
+        {/* Phone mockup with coin cards (192:1613) — rebuilt from Figma layers */}
+        <Reveal className="@container relative mx-auto aspect-[549/668] w-full max-w-[549px] lg:mx-0 lg:ml-auto lg:w-[42%] xl:absolute xl:top-0 xl:left-[653px] xl:h-[668px] xl:w-[549px]" delay={0.1}>
+          <p className="sr-only">
+            Lumino wallet app on a phone showing the ETH/USD chart, with Bitcoin, Ethereum and Tether price cards.
+          </p>
+          <PhoneShowcase />
         </Reveal>
       </div>
     </section>

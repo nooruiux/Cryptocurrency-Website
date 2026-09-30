@@ -5,13 +5,18 @@ interface StatCardProps {
   value: string;
 }
 
-/** Figma "Statistics" card (142:519). Rendered inside a <dl>. */
+/**
+ * Figma "Statistics" card (142:519 / 142:527 / 142:535): radius 8, linear
+ * gradient fill, two stacked gradient strokes (1.4px, inside) — see the
+ * --gradient-stat-* tokens. Rendered inside a <dl>.
+ */
 export function StatCard({ label, value }: StatCardProps) {
   return (
-    <div className="flex h-full flex-col gap-6 rounded-lg bg-(image:--gradient-stat-card) px-6 py-5 ring-[1.4px] ring-brand-blue ring-inset">
+    <div className="stroke-gradient flex h-full flex-col gap-6 rounded-lg bg-(image:--gradient-stat-card) bg-size-[100%_100%] px-6 py-5 [--stroke-image:var(--gradient-stat-stroke)] [--stroke-width:1.4px]">
       <dt className="flex flex-col gap-6 px-[7.5px] text-lg leading-[normal] tracking-[0.09px] text-white/80">
         <span>{label}</span>
-        <span aria-hidden className="-mb-[1.4px] block h-[1.4px] w-full bg-(image:--gradient-stat-rule)" />
+        {/* Line 18: 1.4px, centre-aligned on the frame's bottom edge */}
+        <span aria-hidden className="-my-[0.7px] block h-[1.4px] w-full bg-(image:--gradient-stat-rule)" />
       </dt>
       <dd className="flex items-center justify-between gap-4">
         <span className="text-gradient-brand font-display text-[32px] leading-[normal] font-bold tracking-[0.2px] sm:text-[40px]">

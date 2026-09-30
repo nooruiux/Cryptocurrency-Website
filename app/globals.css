@@ -65,11 +65,15 @@
   --gradient-brand: linear-gradient(107.28deg, var(--color-brand-blue) 0%, var(--color-brand-purple) 81.1%);
   --gradient-brand-text: linear-gradient(111.6deg, var(--color-brand-blue) 1.2%, var(--color-brand-purple) 80.35%);
   --gradient-brand-vertical: linear-gradient(180deg, var(--color-brand-blue) 0%, var(--color-brand-purple) 100%);
-  /* Figma blends alpha un-premultiplied: mid-stops reproduce its purple falloff (#0B1441 → rgba(137,86,233,0) @129%) */
-  --gradient-stat-card: linear-gradient(115.3deg, var(--color-stat-from) 0.57%, rgb(59 45 130 / 0.62) 50%, rgb(108 71 195 / 0.23) 100%);
+  /* Statistics card (142:519) — exact Figma paints. Fill + two stacked stroke
+     gradients are SVG gradients in objectBoundingBox space using the inverse of
+     Figma's gradientTransform, so they map 1:1 at any card size. Extra stops
+     reproduce Figma's un-premultiplied alpha blending. Line 18 = stat-rule. */
+  --gradient-stat-card: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 preserveAspectRatio=%22none%22 viewBox=%220 0 1 1%22%3E%3Cdefs%3E%3ClinearGradient id=%22f%22 gradientUnits=%22objectBoundingBox%22 x1=%220%22 y1=%220.5%22 x2=%221%22 y2=%220.5%22 gradientTransform=%22matrix%281.306590 1.194610 -1.194610 5.706334 0.597305 -2.820233%29%22%3E%3Cstop offset=%220.0000%22 stop-color=%22rgb%2811%2C20%2C65%29%22 stop-opacity=%221.0000%22/%3E%3Cstop offset=%220.0625%22 stop-color=%22rgb%2819%2C24%2C75%29%22 stop-opacity=%220.9375%22/%3E%3Cstop offset=%220.1250%22 stop-color=%22rgb%2827%2C28%2C86%29%22 stop-opacity=%220.8750%22/%3E%3Cstop offset=%220.1875%22 stop-color=%22rgb%2835%2C32%2C96%29%22 stop-opacity=%220.8125%22/%3E%3Cstop offset=%220.2500%22 stop-color=%22rgb%2842%2C36%2C107%29%22 stop-opacity=%220.7500%22/%3E%3Cstop offset=%220.3125%22 stop-color=%22rgb%2850%2C41%2C117%29%22 stop-opacity=%220.6875%22/%3E%3Cstop offset=%220.3750%22 stop-color=%22rgb%2858%2C45%2C128%29%22 stop-opacity=%220.6250%22/%3E%3Cstop offset=%220.4375%22 stop-color=%22rgb%2866%2C49%2C138%29%22 stop-opacity=%220.5625%22/%3E%3Cstop offset=%220.5000%22 stop-color=%22rgb%2874%2C53%2C149%29%22 stop-opacity=%220.5000%22/%3E%3Cstop offset=%220.5625%22 stop-color=%22rgb%2882%2C57%2C159%29%22 stop-opacity=%220.4375%22/%3E%3Cstop offset=%220.6250%22 stop-color=%22rgb%2890%2C61%2C170%29%22 stop-opacity=%220.3750%22/%3E%3Cstop offset=%220.6875%22 stop-color=%22rgb%2898%2C65%2C180%29%22 stop-opacity=%220.3125%22/%3E%3Cstop offset=%220.7500%22 stop-color=%22rgb%28106%2C70%2C191%29%22 stop-opacity=%220.2500%22/%3E%3Cstop offset=%220.8125%22 stop-color=%22rgb%28113%2C74%2C201%29%22 stop-opacity=%220.1875%22/%3E%3Cstop offset=%220.8750%22 stop-color=%22rgb%28121%2C78%2C212%29%22 stop-opacity=%220.1250%22/%3E%3Cstop offset=%220.9375%22 stop-color=%22rgb%28129%2C82%2C222%29%22 stop-opacity=%220.0625%22/%3E%3Cstop offset=%221.0000%22 stop-color=%22rgb%28137%2C86%2C233%29%22 stop-opacity=%220.0000%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%221%22 height=%221%22 fill=%22url%28%23f%29%22/%3E%3C/svg%3E");
+  --gradient-stat-stroke: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 preserveAspectRatio=%22none%22 viewBox=%220 0 1 1%22%3E%3Cdefs%3E%3ClinearGradient id=%22a%22 gradientUnits=%22objectBoundingBox%22 x1=%220%22 y1=%220.5%22 x2=%221%22 y2=%220.5%22 gradientTransform=%22matrix%280.110315 0.459119 -0.461493 0.496668 0.441348 -0.383554%29%22%3E%3Cstop offset=%220.0000%22 stop-color=%22rgb%2875%2C116%2C230%29%22 stop-opacity=%221.0000%22/%3E%3Cstop offset=%220.0625%22 stop-color=%22rgb%2879%2C114%2C230%29%22 stop-opacity=%220.9375%22/%3E%3Cstop offset=%220.1250%22 stop-color=%22rgb%2883%2C112%2C230%29%22 stop-opacity=%220.8750%22/%3E%3Cstop offset=%220.1875%22 stop-color=%22rgb%2887%2C110%2C231%29%22 stop-opacity=%220.8125%22/%3E%3Cstop offset=%220.2500%22 stop-color=%22rgb%2890%2C109%2C231%29%22 stop-opacity=%220.7500%22/%3E%3Cstop offset=%220.3125%22 stop-color=%22rgb%2894%2C107%2C231%29%22 stop-opacity=%220.6875%22/%3E%3Cstop offset=%220.3750%22 stop-color=%22rgb%2898%2C105%2C231%29%22 stop-opacity=%220.6250%22/%3E%3Cstop offset=%220.4375%22 stop-color=%22rgb%28102%2C103%2C231%29%22 stop-opacity=%220.5625%22/%3E%3Cstop offset=%220.5000%22 stop-color=%22rgb%28106%2C101%2C232%29%22 stop-opacity=%220.5000%22/%3E%3Cstop offset=%220.5625%22 stop-color=%22rgb%28110%2C99%2C232%29%22 stop-opacity=%220.4375%22/%3E%3Cstop offset=%220.6250%22 stop-color=%22rgb%28114%2C97%2C232%29%22 stop-opacity=%220.3750%22/%3E%3Cstop offset=%220.6875%22 stop-color=%22rgb%28118%2C95%2C232%29%22 stop-opacity=%220.3125%22/%3E%3Cstop offset=%220.7500%22 stop-color=%22rgb%28122%2C94%2C232%29%22 stop-opacity=%220.2500%22/%3E%3Cstop offset=%220.8125%22 stop-color=%22rgb%28125%2C92%2C232%29%22 stop-opacity=%220.1875%22/%3E%3Cstop offset=%220.8750%22 stop-color=%22rgb%28129%2C90%2C233%29%22 stop-opacity=%220.1250%22/%3E%3Cstop offset=%220.9375%22 stop-color=%22rgb%28133%2C88%2C233%29%22 stop-opacity=%220.0625%22/%3E%3Cstop offset=%221.0000%22 stop-color=%22rgb%28137%2C86%2C233%29%22 stop-opacity=%220.0000%22/%3E%3C/linearGradient%3E%3ClinearGradient id=%22b%22 gradientUnits=%22objectBoundingBox%22 x1=%220%22 y1=%220.5%22 x2=%221%22 y2=%220.5%22 gradientTransform=%22matrix%28-0.024355 -0.100629 0.100629 -0.117341 0.495531 1.159299%29%22%3E%3Cstop offset=%220.0000%22 stop-color=%22rgb%2875%2C116%2C230%29%22 stop-opacity=%221.0000%22/%3E%3Cstop offset=%220.0625%22 stop-color=%22rgb%2879%2C114%2C230%29%22 stop-opacity=%220.9375%22/%3E%3Cstop offset=%220.1250%22 stop-color=%22rgb%2883%2C112%2C230%29%22 stop-opacity=%220.8750%22/%3E%3Cstop offset=%220.1875%22 stop-color=%22rgb%2887%2C110%2C231%29%22 stop-opacity=%220.8125%22/%3E%3Cstop offset=%220.2500%22 stop-color=%22rgb%2890%2C109%2C231%29%22 stop-opacity=%220.7500%22/%3E%3Cstop offset=%220.3125%22 stop-color=%22rgb%2894%2C107%2C231%29%22 stop-opacity=%220.6875%22/%3E%3Cstop offset=%220.3750%22 stop-color=%22rgb%2898%2C105%2C231%29%22 stop-opacity=%220.6250%22/%3E%3Cstop offset=%220.4375%22 stop-color=%22rgb%28102%2C103%2C231%29%22 stop-opacity=%220.5625%22/%3E%3Cstop offset=%220.5000%22 stop-color=%22rgb%28106%2C101%2C232%29%22 stop-opacity=%220.5000%22/%3E%3Cstop offset=%220.5625%22 stop-color=%22rgb%28110%2C99%2C232%29%22 stop-opacity=%220.4375%22/%3E%3Cstop offset=%220.6250%22 stop-color=%22rgb%28114%2C97%2C232%29%22 stop-opacity=%220.3750%22/%3E%3Cstop offset=%220.6875%22 stop-color=%22rgb%28118%2C95%2C232%29%22 stop-opacity=%220.3125%22/%3E%3Cstop offset=%220.7500%22 stop-color=%22rgb%28122%2C94%2C232%29%22 stop-opacity=%220.2500%22/%3E%3Cstop offset=%220.8125%22 stop-color=%22rgb%28125%2C92%2C232%29%22 stop-opacity=%220.1875%22/%3E%3Cstop offset=%220.8750%22 stop-color=%22rgb%28129%2C90%2C233%29%22 stop-opacity=%220.1250%22/%3E%3Cstop offset=%220.9375%22 stop-color=%22rgb%28133%2C88%2C233%29%22 stop-opacity=%220.0625%22/%3E%3Cstop offset=%221.0000%22 stop-color=%22rgb%28137%2C86%2C233%29%22 stop-opacity=%220.0000%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%221%22 height=%221%22 fill=%22url%28%23a%29%22/%3E%3Crect width=%221%22 height=%221%22 fill=%22url%28%23b%29%22/%3E%3C/svg%3E");
+  --gradient-stat-rule: linear-gradient(90deg, rgb(75 116 230 / 0.2400) 8.43%, rgb(81 113 230 / 0.2160) 16.10%, rgb(87 110 231 / 0.1920) 23.76%, rgb(94 107 231 / 0.1680) 31.43%, rgb(100 104 231 / 0.1440) 39.10%, rgb(106 101 232 / 0.1200) 46.77%, rgb(112 98 232 / 0.0960) 54.44%, rgb(118 95 232 / 0.0720) 62.11%, rgb(125 92 232 / 0.0480) 69.78%, rgb(131 89 233 / 0.0240) 77.44%, rgb(137 86 233 / 0.0000) 85.11%);
   --gradient-feature-card: linear-gradient(180deg, rgb(75 116 230 / 0.16) 0%, rgb(137 86 233 / 0.16) 100%);
   --gradient-portfolio-label: linear-gradient(104.5deg, rgb(75 116 230 / 0.8) 0%, rgb(123 97 255 / 0.8) 107.83%);
-  --gradient-stat-rule: linear-gradient(90deg, rgb(75 116 230 / 0.24) 0%, rgb(137 86 233 / 0) 100%);
   --gradient-coin-rule: linear-gradient(90deg, var(--color-brand-blue) 0%, var(--color-brand-purple) 100%);
   --gradient-vertical-rule: linear-gradient(180deg, rgb(0 255 189 / 0.32) 0%, rgb(151 71 255 / 0.24) 100%);
 
@@ -154,5 +158,31 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+  }
+}
+
+/*
+ * Gradient stroke that follows border-radius (Figma "inside" stroke).
+ * A pseudo-element painted with the stroke gradient is masked down to a ring
+ * of --stroke-width via mask-composite: exclude. Set --stroke-image on the host.
+ */
+@utility stroke-gradient {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: var(--stroke-width, 1px);
+    background: var(--stroke-image) center / 100% 100% no-repeat;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
   }
 }
