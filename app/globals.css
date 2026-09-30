@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/*
+ * Lumino design tokens — sourced from the Figma file (MThApTfkGLLpsh53mF5fOa).
+ * Figma variables are mirrored 1:1 (Base/Grey *, Accent/*, Landing Page/Details,
+ * Additional Colors/White). Values that the file uses as raw fills (page
+ * background, brand gradient, highlight mint, pool row fill) are tokenised here
+ * too so components never hardcode hex values.
+ */
+@theme {
+  /* Figma variables */
+  --color-grey-0: #ffffff;
+  --color-grey-20: #e5e6ed;
+  --color-grey-40: #a5adcf;
+  --color-grey-60: #5d6588;
+  --color-grey-80: #34384c;
+  --color-green-primary: #11cabe;
+  --color-red-primary: #fa2256;
+  --color-details: #6f74b0;
+  --color-white: #fefefe;
+
+  /* Raw fills used across the design */
+  --color-page: #091233;
+  --color-mint: #11efc4;
+  --color-neon: #00ffbd;
+  --color-brand-blue: #4b74e6;
+  --color-brand-purple: #8956e9;
+  --color-violet: #7b61ff;
+  --color-navy: #1c3a65;
+  --color-stat-from: #0b1441;
+
+  /* Typography (next/font injects the CSS variables) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-inder: var(--font-inder-face), var(--font-inter), ui-sans-serif, sans-serif;
+
+  /* Figma text styles use "line-height: normal" unless stated — mirror that so
+     size utilities don't inject Tailwind's default leading. */
+  --text-xs--line-height: normal;
+  --text-sm--line-height: normal;
+  --text-base--line-height: normal;
+  --text-lg--line-height: normal;
+  --text-xl--line-height: normal;
+  --text-2xl--line-height: normal;
+
+  /* Motion */
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+}
+
+:root {
+  /* Accent/Green/Linear + Accent/Red/Linear (sparkline area fills in Figma) */
+  --gradient-accent-green: linear-gradient(180deg, rgb(188 255 233 / 0.4) 26.04%, rgb(0 0 0 / 0) 100%);
+  --gradient-accent-red: linear-gradient(180deg, rgb(252 226 237 / 0.38) 10.42%, rgb(44 44 44 / 0) 100%);
+
+  /* Primary CTA gradient (Button component 60:276) */
+  --gradient-brand: linear-gradient(107.28deg, var(--color-brand-blue) 0%, var(--color-brand-purple) 81.1%);
+  --gradient-brand-text: linear-gradient(111.6deg, var(--color-brand-blue) 1.2%, var(--color-brand-purple) 80.35%);
+  --gradient-brand-vertical: linear-gradient(180deg, var(--color-brand-blue) 0%, var(--color-brand-purple) 100%);
+  /* Figma blends alpha un-premultiplied: mid-stops reproduce its purple falloff (#0B1441 → rgba(137,86,233,0) @129%) */
+  --gradient-stat-card: linear-gradient(115.3deg, var(--color-stat-from) 0.57%, rgb(59 45 130 / 0.62) 50%, rgb(108 71 195 / 0.23) 100%);
+  --gradient-feature-card: linear-gradient(180deg, rgb(75 116 230 / 0.16) 0%, rgb(137 86 233 / 0.16) 100%);
+  --gradient-portfolio-label: linear-gradient(104.5deg, rgb(75 116 230 / 0.8) 0%, rgb(123 97 255 / 0.8) 107.83%);
+  --gradient-stat-rule: linear-gradient(90deg, rgb(75 116 230 / 0.24) 0%, rgb(137 86 233 / 0) 100%);
+  --gradient-coin-rule: linear-gradient(90deg, var(--color-brand-blue) 0%, var(--color-brand-purple) 100%);
+  --gradient-vertical-rule: linear-gradient(180deg, rgb(0 255 189 / 0.32) 0%, rgb(151 71 255 / 0.24) 100%);
+
+  --gutter: 16px;
+  color-scheme: dark;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-page);
+  color: var(--color-grey-0);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-mint);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgb(17 239 196 / 0.3);
+}
+
+@utility container-lumino {
+  width: 100%;
+  max-width: calc(1202px + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility text-gradient-brand {
+  background-image: var(--gradient-brand-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Visually-hidden but reachable by assistive tech */
+@utility sr-only-focusable {
+  &:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
