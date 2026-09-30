@@ -59,7 +59,7 @@ export function BuildPortfolio() {
         <Reveal className="relative mx-auto aspect-[549/668] w-full max-w-[549px] lg:mx-0 lg:ml-auto lg:w-[42%] xl:absolute xl:top-0 xl:left-[653px] xl:h-[668px] xl:w-[549px]" delay={0.1}>
           {/* The render includes the glow bleed: offset it so the 549×668 frame aligns with Figma */}
           <Image
-            src="/assets/portfolio/phone-mockup.png"
+            src="/assets/portfolio/phone-mockup.webp"
             alt="Lumino wallet app on a phone showing the ETH/USD chart, with Bitcoin, Ethereum and Tether price cards"
             width={720}
             height={964}

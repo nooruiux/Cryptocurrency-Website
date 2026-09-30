@@ -46,7 +46,7 @@ export function Hero() {
         </div>
 
         <Image
-          src="/assets/header/hero-02.png"
+          src="/assets/header/hero-02.webp"
           alt="Crypto growth illustration: Ethereum, Bitcoin and Litecoin coins in front of a rising bar chart"
           width={560}
           height={510}

@@ -202,7 +202,7 @@ export function MiningPlan() {
           {/* Profit calculator */}
           <div id="calculator" className="flex scroll-mt-24 flex-col items-center gap-8 lg:min-w-0">
             <Image
-              src="/assets/mining/profit-illustration.png"
+              src="/assets/mining/profit-illustration.webp"
               alt="Bitcoin coin orbited by Ethereum, Litecoin and Dogecoin"
               width={190}
               height={186}
