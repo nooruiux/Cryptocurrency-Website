@@ -5,7 +5,7 @@ import { PhoneShowcase } from "./PhoneShowcase";
 /** Figma "Build Portfolio" (192:2067). */
 export function BuildPortfolio() {
   return (
-    <section aria-labelledby="portfolio-title" data-section="portfolio" className="container-lumino mt-24 lg:mt-[108px]">
+    <section aria-labelledby="portfolio-title" data-section="portfolio" className="container-lumino mt-16 md:mt-[88px] lg:mt-[108px]">
       <div className="relative flex flex-col gap-10 lg:flex-row lg:items-center xl:h-[668px] xl:items-start">
         {/* Wave line group (213:672) */}
         <Image
@@ -23,12 +23,12 @@ export function BuildPortfolio() {
           </p>
           <h2
             id="portfolio-title"
-            className="mt-2 max-w-[449px] font-display text-[34px] leading-[42px] font-bold text-white sm:text-[40px] sm:leading-[50px] xl:text-[48px] xl:leading-[58px]"
+            className="text-fluid-h2 mt-2 max-w-[449px] font-display font-bold text-white xl:text-[48px] xl:leading-[58px]"
           >
             Build Your Crypto Portfolio
           </h2>
           <div className="mt-4 flex max-w-[451px] flex-col gap-6 lg:mt-[18px] lg:ml-[3px]">
-            <p className="text-base leading-[26px] tracking-[0.08px] text-white/80">
+            <p className="text-base leading-6 tracking-[0.08px] text-white/80 sm:leading-[26px]">
               Lorem ipsum dolor sit amet consectetur. Quam nunc lorem ipsum sit lobortis. In velit vitae enim eu imperdiet
               faucibus sagittis. Facilisi et morbi felis velit aliquam pellentesque ut.
             </p>

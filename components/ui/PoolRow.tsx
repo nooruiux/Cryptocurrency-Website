@@ -12,9 +12,9 @@ export function PoolRow({ pool, active = false }: PoolRowProps) {
   return (
     <tr
       role="row"
-      className={`grid h-16 grid-cols-[192px_98px_101px_111px_28px] items-center rounded-[4px] pr-[15px] pl-4 transition-colors hover:bg-navy/60 ${surface}`}
+      className={`grid h-16 grid-cols-[192px_98px_101px_111px_28px] items-center md:max-lg:grid-cols-[192fr_98fr_101fr_111fr_28px] rounded-[4px] pr-[15px] pl-4 max-sm:h-auto max-sm:grid-cols-3 max-sm:gap-x-3 max-sm:gap-y-3 max-sm:py-3 max-sm:pr-3 transition-colors hover:bg-navy/60 ${surface}`}
     >
-      <th role="rowheader" scope="row" className="flex items-center gap-3 text-left text-base leading-[normal] font-semibold text-white">
+      <th role="rowheader" scope="row" className="flex items-center gap-3 max-sm:col-span-2 max-sm:row-start-1 text-left text-base leading-[normal] font-semibold text-white">
         <span className="flex h-8 w-[54px] items-center">
           <Image src={pool.icon} alt="" width={pool.iconWidth} height={pool.iconHeight} style={{ width: pool.iconWidth, height: pool.iconHeight }} />
         </span>
@@ -23,13 +23,16 @@ export function PoolRow({ pool, active = false }: PoolRowProps) {
       <Metric label="APY" value={pool.apy} />
       <Metric label="APR" value={pool.apr} />
       <Metric label="Liquidity" value={pool.liquidity} />
-      <td role="cell">
+      <td role="cell" className="max-sm:col-start-3 max-sm:row-start-1 max-sm:justify-self-end">
+        {/* 28px visual; the link itself is a 44px touch target below lg */}
         <a
           href="#mining-plan"
           aria-label={`Open ${pool.pair} farming pool`}
-          className="flex size-7 items-center justify-center rounded-[2px] bg-(image:--gradient-brand-vertical) transition-[filter] hover:brightness-125"
+          className="flex items-center justify-center transition-[filter] hover:brightness-125 max-lg:-m-2 max-lg:size-11"
         >
-          <Image src="/assets/control/row-arrow.svg" alt="" width={16} height={16} />
+          <span className="flex size-7 items-center justify-center rounded-[2px] bg-(image:--gradient-brand-vertical)">
+            <Image src="/assets/control/row-arrow.svg" alt="" width={16} height={16} />
+          </span>
         </a>
       </td>
     </tr>

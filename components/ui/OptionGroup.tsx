@@ -60,7 +60,7 @@ export function OptionGroup<T extends string>({
             tabIndex={checked ? 0 : -1}
             onClick={() => onChange(option.value)}
             onKeyDown={(event) => onKeyDown(event, index)}
-            className={`flex min-w-0 flex-1 items-center justify-center rounded-[4px] border py-[9px] sm:flex-none text-sm leading-[normal] font-medium tracking-[0.07px] whitespace-nowrap transition-colors duration-200 ${
+            className={`flex min-w-0 flex-1 items-center justify-center rounded-[4px] border py-[9px] max-lg:min-h-11 sm:flex-none text-sm leading-[normal] font-medium tracking-[0.07px] whitespace-nowrap transition-colors duration-200 ${
               checked ? "border-mint text-white" : "border-white/24 text-white/80 hover:border-white/48 hover:text-white"
             } ${optionClassName}`}
           >

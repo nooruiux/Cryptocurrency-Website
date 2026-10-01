@@ -9,10 +9,10 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" data-section="hero" className="container-lumino">
       <div className="mt-14 flex flex-col items-center gap-12 lg:mt-28 lg:flex-row lg:items-start lg:gap-[29px]">
-        <div className="flex w-full max-w-[658px] flex-col items-start gap-10 lg:w-[56%] lg:shrink-0 xl:w-[658px]">
+        <div className="flex w-full max-w-[658px] flex-col items-start gap-10 max-md:items-center max-md:text-center lg:w-[56%] lg:shrink-0 xl:w-[658px]">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <p className="flex items-center gap-3 text-base leading-[26px] font-medium tracking-[0.09px] text-white sm:text-lg">
+              <p className="flex items-center gap-3 text-base leading-[26px] max-md:justify-center max-md:text-left font-medium tracking-[0.09px] text-white sm:text-lg">
                 <Image src="/assets/header/badge-bitcoin.svg" alt="" width={40} height={40} className="size-10 shrink-0" />
                 <span>
                   Register for free &amp; get $10 on <span className="text-neon">Bitcoin mining</span>
@@ -21,9 +21,22 @@ export function Hero() {
               <div className="relative">
                 <h1
                   id="hero-title"
-                  className="font-display text-[40px] leading-[48px] font-bold tracking-[0.32px] text-white sm:text-[56px] sm:leading-[66px] xl:text-[64px] xl:leading-[76px]"
+                  className="text-fluid-h1 font-display font-bold tracking-[0.32px] text-white lg:max-xl:text-[52px] lg:max-xl:leading-[62px] xl:text-[64px] xl:leading-[76px]"
                 >
-                  The Faster, Safer Platform To Mining Bitcoin
+                  The Faster, Safer Platform To Mining{" "}
+                  <span className="whitespace-nowrap">
+                    Bitcoin
+                    {/* Tablet → laptop: same decoration, sized in em so it scales with the H1 */}
+                    <span aria-hidden className="relative hidden h-0 w-[3.11em] md:inline-block xl:hidden">
+                      <Image
+                        src="/assets/header/hero-decoration.svg"
+                        alt=""
+                        width={199}
+                        height={96}
+                        className="absolute bottom-[-0.19em] left-[0.15em] h-[1.5em] w-[3.11em] max-w-none"
+                      />
+                    </span>
+                  </span>
                 </h1>
                 {/* Rocket + wave decoration (320:301) — aligned to the last line on desktop */}
                 <Image
@@ -35,12 +48,12 @@ export function Hero() {
                 />
               </div>
             </div>
-            <p className="max-w-[562px] text-base leading-7 font-medium tracking-[0.09px] text-white/64 sm:text-lg">
+            <p className="max-w-[562px] text-base leading-6 font-medium sm:leading-7 tracking-[0.09px] text-white/64 sm:text-lg">
               Digital currencies introduced new financial tools and their value has grown tremendously over the last few
               years. There&apos;s never been a better time to join this billion dollar industry.
             </p>
           </div>
-          <ButtonLink href="#mining-plan" size="lg">
+          <ButtonLink href="#mining-plan" size="lg" className="max-md:w-full">
             Start Mining
           </ButtonLink>
         </div>

@@ -7,7 +7,7 @@ import { pools } from "@/lib/data";
 /** Figma "Control Crypto" (153:1799). */
 export function ControlCrypto() {
   return (
-    <section id="control" aria-labelledby="control-title" data-section="control" className="container-lumino relative mt-24 lg:mt-[124px]">
+    <section id="control" aria-labelledby="control-title" data-section="control" className="container-lumino relative mt-16 md:mt-[88px] lg:mt-[124px]">
       {/* Decorative glows + illustration (desktop geometry from Figma) */}
       <div aria-hidden className="pointer-events-none absolute inset-y-0 left-[var(--gutter)] -z-10 hidden w-[1202px] xl:block">
         <Image src="/assets/control/glow-center.webp" alt="" width={845} height={845} className="absolute top-[-120px] left-[59px] size-[845px] max-w-none" />
@@ -19,12 +19,12 @@ export function ControlCrypto() {
         <Reveal className="relative flex max-w-[506px] flex-col gap-4 lg:pt-[106px]">
           <h2
             id="control-title"
-            className="font-display text-[34px] leading-[42px] font-bold tracking-[0.24px] text-white sm:text-[40px] sm:leading-[50px] xl:text-[48px] xl:leading-[58px]"
+            className="text-fluid-h2 font-display font-bold tracking-[0.24px] text-white xl:text-[48px] xl:leading-[58px]"
           >
             Control Your Crypto Be Risk Free
           </h2>
           <div className="flex flex-col items-start gap-8">
-            <p className="max-w-[410px] text-base leading-7 tracking-[0.08px] text-white/64">
+            <p className="max-w-[410px] text-base leading-6 tracking-[0.08px] sm:leading-7 text-white/64">
               Digital currencies introduced new financial tools and their value has grown tremendously over the last few
               years. There&apos;s never been a better time to join this.
             </p>
@@ -50,7 +50,7 @@ export function ControlCrypto() {
             aria-labelledby="pools-title"
             tabIndex={0}
           >
-            <table role="table" className="block w-[561px]">
+            <table role="table" className="block w-full sm:w-[561px] md:w-full lg:w-[561px]">
               <thead className="sr-only">
                 <tr>
                   <th scope="col">Pool</th>

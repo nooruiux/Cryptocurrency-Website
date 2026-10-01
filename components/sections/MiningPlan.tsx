@@ -75,15 +75,15 @@ export function MiningPlan() {
   ];
 
   return (
-    <section id="mining-plan" aria-labelledby="mining-title" data-section="mining" className="container-lumino mt-24 scroll-mt-8 lg:mt-[120px]">
+    <section id="mining-plan" aria-labelledby="mining-title" data-section="mining" className="container-lumino mt-16 scroll-mt-8 md:mt-[88px] lg:mt-[120px]">
       <Reveal className="flex flex-col items-center gap-4 text-center">
         <h2
           id="mining-title"
-          className="font-display text-[30px] leading-[40px] font-bold tracking-[0.2px] text-white sm:text-[40px] sm:leading-[50px]"
+          className="text-fluid-h3 font-display font-bold tracking-[0.2px] text-white"
         >
           Setup Your <span className="text-mint">Mining Plan</span> Right Now
         </h2>
-        <p className="max-w-[570px] text-base leading-[26px] tracking-[0.08px] text-white/64">
+        <p className="max-w-[570px] text-base leading-6 sm:leading-[26px] tracking-[0.08px] text-white/64">
           Digital currencies introduced new financial tools and their value has grown tremendously over the last few
           years. There&apos;s never been a better time.
         </p>
@@ -148,30 +148,40 @@ export function MiningPlan() {
                       className="w-full min-w-0 flex-1 bg-transparent text-center font-display text-xl leading-[normal] font-semibold tracking-[0.1px] text-white outline-none"
                     />
                     <span aria-hidden className="my-px w-[1.4px] bg-white/24" />
-                    <div className="relative flex w-16 shrink-0 items-center justify-center">
-                      <Image src="/assets/mining/stepper.svg" alt="" width={24} height={24} className="pointer-events-none" />
-                      <button
-                        type="button"
-                        aria-label="Increase hashpower"
-                        aria-controls={hashId}
-                        disabled={hashpower >= HASHPOWER_MAX}
-                        onClick={() => commitHashpower(hashpower + 1)}
-                        className="absolute inset-x-0 top-0 h-1/2 rounded-tr-[4px] hover:bg-white/4 disabled:opacity-40"
-                      />
+                    {/* Desktop: stacked halves over the Figma stepper glyph. Below lg the
+                        same glyph is split into two side-by-side 44×56 touch targets. */}
+                    <div className="relative flex w-16 shrink-0 items-center justify-center max-lg:w-[88px]">
+                      <Image src="/assets/mining/stepper.svg" alt="" width={24} height={24} className="pointer-events-none max-lg:hidden" />
                       <button
                         type="button"
                         aria-label="Decrease hashpower"
                         aria-controls={hashId}
                         disabled={hashpower <= HASHPOWER_MIN}
                         onClick={() => commitHashpower(hashpower - 1)}
-                        className="absolute inset-x-0 bottom-0 h-1/2 rounded-br-[4px] hover:bg-white/4 disabled:opacity-40"
-                      />
+                        className="absolute inset-x-0 bottom-0 h-1/2 rounded-br-[4px] hover:bg-white/4 disabled:opacity-40 max-lg:static max-lg:flex max-lg:h-full max-lg:w-11 max-lg:items-center max-lg:justify-center max-lg:rounded-none"
+                      >
+                        <span aria-hidden className="hidden h-3 w-6 overflow-hidden max-lg:block">
+                          <Image src="/assets/mining/stepper.svg" alt="" width={24} height={24} className="-mt-3 max-w-none" />
+                        </span>
+                      </button>
+                      <button
+                        type="button"
+                        aria-label="Increase hashpower"
+                        aria-controls={hashId}
+                        disabled={hashpower >= HASHPOWER_MAX}
+                        onClick={() => commitHashpower(hashpower + 1)}
+                        className="absolute inset-x-0 top-0 h-1/2 rounded-tr-[4px] hover:bg-white/4 disabled:opacity-40 max-lg:static max-lg:flex max-lg:h-full max-lg:w-11 max-lg:items-center max-lg:justify-center max-lg:rounded-r-[4px]"
+                      >
+                        <span aria-hidden className="hidden h-3 w-6 overflow-hidden max-lg:block">
+                          <Image src="/assets/mining/stepper.svg" alt="" width={24} height={24} className="max-w-none" />
+                        </span>
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex gap-1" role="group" aria-label="Hashpower presets">
+              <div className="flex gap-1 max-sm:flex-wrap" role="group" aria-label="Hashpower presets">
                 {HASHPOWER_PRESETS.map((preset) => (
                   <Chip key={preset} label={`${preset} TH/s`} pressed={hashpower === preset} onClick={() => commitHashpower(preset)} />
                 ))}
@@ -252,7 +262,7 @@ export function MiningPlan() {
           </div>
         </div>
 
-        <dl className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3 xl:flex xl:gap-[136px]" aria-live="polite">
+        <dl className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 xl:flex xl:gap-[136px]" aria-live="polite">
           {income.map((item) => (
             <div
               key={item.label}

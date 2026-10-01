@@ -87,7 +87,15 @@
   }
 }
 
-@media (min-width: 1280px) {
+/* 1280–1439: 40px inset (1200px content). From 1440 up the centred 1202px
+   content box already sits ≥119px in, so the gutter is irrelevant to layout
+   and stays at its original value (keeps desktop renders unchanged). */
+@media (min-width: 1280px) and (max-width: 1439.98px) {
+  :root {
+    --gutter: 40px;
+  }
+}
+@media (min-width: 1440px) {
   :root {
     --gutter: 16px;
   }
@@ -123,6 +131,27 @@ body {
 
 ::selection {
   background: rgb(17 239 196 / 0.3);
+}
+
+/*
+ * Fluid type (375px → 1280px). Each max is the exact Figma size/leading, reached
+ * at 1280px, so desktop renders are identical to the Figma frame.
+ */
+@utility text-fluid-h1 {
+  font-size: clamp(36px, calc(24.3978px + 3.0939vw), 64px);
+  line-height: clamp(44px, calc(30.7403px + 3.5359vw), 76px);
+}
+@utility text-fluid-display {
+  font-size: clamp(30px, calc(19.2265px + 2.8729vw), 56px);
+  line-height: clamp(38px, calc(25.5691px + 3.3149vw), 68px);
+}
+@utility text-fluid-h2 {
+  font-size: clamp(28px, calc(19.7127px + 2.2099vw), 48px);
+  line-height: clamp(36px, calc(26.8840px + 2.4309vw), 58px);
+}
+@utility text-fluid-h3 {
+  font-size: clamp(28px, calc(23.0276px + 1.3260vw), 40px);
+  line-height: clamp(36px, calc(30.1989px + 1.5470vw), 50px);
 }
 
 @utility container-lumino {

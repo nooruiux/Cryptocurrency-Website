@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { trendArrow, type Asset } from "@/lib/data";
 
-/** Figma "Card Assets" instance (192:1318). 346×178. */
+/** Figma "Card Assets" instance (192:1318). 346×178 (280 on mobile, 320 on tablet). */
 export function AssetCard({ asset }: { asset: Asset }) {
   const trendColor = asset.trend === "up" ? "text-green-primary" : "text-red-primary";
   return (
-    <article className="flex h-[178px] w-[346px] shrink-0 flex-col rounded-lg border border-white/4 bg-[rgb(22_49_90/0.24)] px-6 pt-6 pb-[23px] backdrop-blur-[2px]">
+    <article className="flex h-[178px] w-[280px] shrink-0 flex-col md:w-[320px] lg:w-[346px] rounded-lg border border-white/4 bg-[rgb(22_49_90/0.24)] px-5 pt-6 md:px-6 pb-[23px] backdrop-blur-[2px]">
       <div className="flex items-start justify-between">
         {asset.logo ? (
           <Image src={asset.logo} alt="" width={44} height={44} className="size-11" />
