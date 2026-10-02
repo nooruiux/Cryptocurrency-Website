@@ -4,7 +4,7 @@
 
 A modern, dark-themed **cryptocurrency / Bitcoin mining website template** built with Next.js, TypeScript and Tailwind CSS — pixel-perfect from a Figma design, fully responsive and SEO-ready.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-22C55E?style=for-the-badge&logo=vercel&logoColor=white)](https://cryptocurrency-website.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-22C55E?style=for-the-badge&logo=vercel&logoColor=white)](https://cryptocurrency-website-development.vercel.app)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
